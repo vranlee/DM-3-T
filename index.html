@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM³T: Harmonizing Modalities via Diffusion for Multi-Object Tracking - Supplementary Material</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a202c;
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .academic-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: all 0.2s;
+        }
+        .academic-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: #cbd5e0;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link.active {
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+        }
+        /* Custom Scrollbar for code blocks */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-bold text-xl tracking-tight text-slate-800">DM<sup>3</sup>T</span>
+                    <span class="ml-2 text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-600 font-medium border border-blue-100">Blind Review</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="nav-link text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5">Overview</a>
+                    <a href="#features" class="nav-link text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5">Features</a>
+                    <a href="#performance" class="nav-link text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5">Performance</a>
+                    <a href="#implementation" class="nav-link text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5">Code</a>
+                    <a href="#usage" class="nav-link text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-5">Usage</a>
+                </div>
+                <div class="md:hidden">
+                    <!-- Mobile menu button placeholder -->
+                    <button class="text-slate-500 hover:text-slate-700">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="overview" class="bg-white border-b border-slate-200 pt-16 pb-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+                DM<sup>3</sup>T: Harmonizing Modalities via <br class="hidden md:block" /> Diffusion for Multi-Object Tracking
+            </h1>
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Supplementary Material - Project
+            </p>
+            
+            <div class="mt-8 flex justify-center gap-3 flex-wrap">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-50 text-red-700 border border-red-100">
+                    <i data-lucide="file-text" class="w-4 h-4 mr-1.5"></i> Paper (Under Review)
+                </span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                    <i data-lucide="scale" class="w-4 h-4 mr-1.5"></i> Apache 2.0
+                </span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-100">
+                    <i data-lucide="code-2" class="w-4 h-4 mr-1.5"></i> Python 3.7+
+                </span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-50 text-orange-700 border border-orange-100">
+                    <i data-lucide="zap" class="w-4 h-4 mr-1.5"></i> PyTorch 1.7+
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- Updates Section -->
+        <section>
+            <div class="flex items-center mb-6">
+                <i data-lucide="history" class="w-6 h-6 text-blue-600 mr-2"></i>
+                <h2 class="text-2xl font-bold text-slate-900">Project Updates</h2>
+            </div>
+            <div class="bg-white rounded-lg border border-slate-200 p-6">
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-24 text-sm text-slate-500 font-mono pt-0.5">2025-11-19</div>
+                        <div class="ml-4">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">New</span>
+                            <span class="text-slate-700 ml-2">New version, sample release for review.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-24 text-sm text-slate-500 font-mono pt-0.5">2025-08-05</div>
+                        <div class="ml-4">
+                            <span class="text-slate-700">Initial sample release for internal testing.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features">
+            <div class="flex items-center mb-6">
+                <i data-lucide="target" class="w-6 h-6 text-blue-600 mr-2"></i>
+                <h2 class="text-2xl font-bold text-slate-900">Key Features</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Feature 1 -->
+                <div class="academic-card p-6 rounded-xl">
+                    <div class="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Cross-Modal Diffusion Fusion</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Novel cross-guided denoising mechanism where RGB and thermal features provide mutual guidance during the diffusion process, effectively harmonizing multi-modal inputs.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="academic-card p-6 rounded-xl">
+                    <div class="h-10 w-10 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 mb-4">
+                        <i data-lucide="sliders" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Diffusion Refiner</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        A plug-and-play module designed to enhance and refine unified feature representations through iterative denoising steps, boosting feature distinctiveness.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="academic-card p-6 rounded-xl">
+                    <div class="h-10 w-10 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 mb-4">
+                        <i data-lucide="git-merge" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">Hierarchical Tracker</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Adaptively handles confidence estimation across multiple levels for improved tracking robustness in occluded or cluttered scenes.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="academic-card p-6 rounded-xl">
+                    <div class="h-10 w-10 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600 mb-4">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">End-to-End & Real-time</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Unifies object detection, state estimation, and data association without complex post-processing, enabling online tracking with high temporal coherence.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Visual Placeholder -->
+        <section>
+            <div class="bg-slate-50 rounded-xl border border-slate-200 p-8 text-center border-dashed">
+                <div class="max-w-4xl mx-auto">
+                    <!-- 
+                        TODO: ⚠️ 请将下面的 src 地址替换为您真实的图片路径 ⚠️
+                        例如: src="assets/Framework.png"
+                    -->
+                    <figure class="relative group">
+                        <img 
+                            src="assets/Framework.png" 
+                            alt="Architecture Overview" 
+                            class="w-full h-auto rounded-lg shadow-md mx-auto border border-slate-200"
+                        >
+                        <!-- Optional: Caption if needed -->
+                        <figcaption class="mt-4">
+                            <h3 class="text-lg font-medium text-slate-900">Architecture Overview</h3>
+                            <p class="text-slate-500 mt-2 text-sm max-w-2xl mx-auto">
+                                The proposed DM<sup>3</sup>T framework. It consists of Cross-Modal Diffusion Fusion for harmonizing modalities and a Hierarchical Tracker for robust association.
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Table -->
+        <section id="performance">
+            <div class="flex items-center mb-6">
+                <i data-lucide="bar-chart-2" class="w-6 h-6 text-blue-600 mr-2"></i>
+                <h2 class="text-2xl font-bold text-slate-900">Benchmark Results (VTMOT)</h2>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-slate-200">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="min-w-full divide-y divide-slate-200">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Method</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider font-bold text-blue-700">HOTA ↑</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider font-bold text-blue-700">IDF1 ↑</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">MOTA ↑</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">DetA ↑</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">MOTP ↑</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200">
+                            <!-- Rows -->
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">FairMOT</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">37.35</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">45.80</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">37.27</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">34.63</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">72.53</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">CenterTrack</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">39.05</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">44.42</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">30.59</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">38.10</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">72.87</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">ByteTrack</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">38.39</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">45.76</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">33.15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">32.12</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">73.48</td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">PFTrack</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">41.07</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">47.25</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 font-semibold">43.09</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 font-semibold">41.63</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 font-semibold">73.95</td>
+                            </tr>
+                            <!-- Highlighted Method -->
+                            <tr class="bg-blue-50/60">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-blue-700">DM<sup>3</sup>T (Ours)</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-blue-700">41.70</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-blue-700">48.00</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-700">36.76</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-700">41.46</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-700">73.15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-slate-50 px-6 py-3 border-t border-slate-200">
+                    <p class="text-xs text-slate-500">
+                        Evaluation metrics on VTMOT Test split. <b>HOTA</b> and <b>IDF1</b> are the primary metrics for multi-object tracking performance.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation / Code Snippet -->
+        <section id="implementation">
+            <div class="flex items-center mb-6">
+                <i data-lucide="code" class="w-6 h-6 text-blue-600 mr-2"></i>
+                <h2 class="text-2xl font-bold text-slate-900">Sample C-MDF Preview</h2>
+            </div>
+            <div class="bg-[#1e293b] rounded-lg shadow-lg overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-2 bg-[#0f172a] border-b border-slate-700">
+                    <span class="text-xs font-mono text-slate-400">core.py - CrossModalDiffusionFusion</span>
+                    <div class="flex space-x-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                </div>
+                <div class="p-4 overflow-x-auto custom-scrollbar">
+<pre class="text-sm font-mono leading-relaxed"><code class="language-python text-slate-300">
+<span class="text-purple-400">class</span> <span class="text-yellow-200">CrossModalDiffusionFusion</span>(nn.Module):
+    <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(self, channels, steps=3, noise_level=0.01):
+        <span class="text-purple-400">super</span>(CrossModalDiffusionFusion, self).__init__()
+        self.steps = steps
+        self.noise_level = noise_level
+
+        self.denoise_rgb = self._make_denoise_net(channels * 2, channels)
+        self.denoise_t = self._make_denoise_net(channels * 2, channels)
+
+    <span class="text-purple-400">def</span> <span class="text-blue-400">forward</span>(self, x_rgb, x_t):
+        refined_rgb = x_rgb
+        refined_t = x_t
+
+        <span class="text-gray-500"># Iterative cross-modal guidance</span>
+        <span class="text-purple-400">for</span> _ <span class="text-purple-400">in</span> <span class="text-purple-400">range</span>(self.steps):
+            <span class="text-gray-500"># Add noise for diffusion process</span>
+            noisy_rgb = refined_rgb + torch.randn_like(refined_rgb) * self.noise_level
+            noisy_t = refined_t + torch.randn_like(refined_t) * self.noise_level
+
+            <span class="text-gray-500"># Cross-guidance: RGB guides Thermal, Thermal guides RGB</span>
+            guidance_for_rgb = torch.cat([noisy_rgb, refined_t], dim=1)
+            residual_rgb = self.denoise_rgb(guidance_for_rgb)
+            refined_rgb = noisy_rgb + residual_rgb
+
+            guidance_for_t = torch.cat([noisy_t, refined_rgb], dim=1)
+            residual_t = self.denoise_t(guidance_for_t)
+            refined_t = noisy_t + residual_t
+
+        <span class="text-purple-400">return</span> refined_rgb + refined_t
+</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guide -->
+        <section id="usage">
+            <div class="flex items-center mb-6">
+                <i data-lucide="terminal" class="w-6 h-6 text-blue-600 mr-2"></i>
+                <h2 class="text-2xl font-bold text-slate-900">Getting Started</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Prerequisites -->
+                <div class="academic-card p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-4">Environment Setup</h3>
+                    <div class="bg-slate-50 rounded border border-slate-200 p-4 font-mono text-sm text-slate-700 overflow-x-auto">
+                        <p class="mb-2 text-slate-500"># Create conda environment</p>
+                        <p>conda create -n dm3t python=3.8</p>
+                        <p>conda activate dm3t</p>
+                        <br>
+                        <p class="mb-2 text-slate-500"># Install Dependencies</p>
+                        <p>pip install -r requirements.txt</p>
+                    </div>
+                </div>
+
+                 <!-- Dataset -->
+                 <div class="academic-card p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-4">Dataset Preparation</h3>
+                    <p class="text-slate-600 mb-3 text-sm">Organize the VTMOT dataset structure as follows:</p>
+                    <div class="bg-slate-50 rounded border border-slate-200 p-4 font-mono text-xs text-slate-600 overflow-x-auto whitespace-pre">
+VTMOT/
+├── images/
+│   ├── train/
+│   │   ├── $sequence_name$/
+│   │   │   ├── gt/
+│   │   │   └── infrared/ ...
+└── annotations/
+    ├── train/
+    └── test/
+                    </div>
+                    <p class="mt-3 text-sm text-slate-600">Then convert annotations:</p>
+                    <div class="mt-2 bg-slate-100 px-3 py-2 rounded font-mono text-sm text-slate-800 inline-block">
+                        python tools/convert_vtmot_to_coco.py
+                    </div>
+                </div>
+
+                <!-- Training & Eval -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="academic-card p-6 rounded-xl">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-4">Training</h3>
+                        <div class="bg-slate-900 rounded p-4 font-mono text-sm text-white overflow-x-auto">
+                            cd src<br>
+                            python main.py tracking \<br>
+                            &nbsp;&nbsp;--exp_id exp_v1 \<br>
+                            &nbsp;&nbsp;--dataset vtmot \<br>
+                            &nbsp;&nbsp;--arch dla_34
+                        </div>
+                    </div>
+                    <div class="academic-card p-6 rounded-xl">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-4">Evaluation</h3>
+                        <div class="bg-slate-900 rounded p-4 font-mono text-sm text-white overflow-x-auto">
+                            cd trackeval<br>
+                            python eval.py \<br>
+                            &nbsp;&nbsp;--BENCHMARK VTMOT \<br>
+                            &nbsp;&nbsp;--SPLIT_TO_EVAL test
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="font-bold text-xl text-slate-800">DM<sup>3</sup>T</span>
+                    <p class="text-slate-500 text-sm mt-1">Supplementary Material for Blind Review</p>
+                </div>
+                <div class="flex space-x-6">
+                    <span class="text-slate-400 text-sm">Licensed under Apache 2.0</span>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-slate-100 pt-8 text-center text-xs text-slate-400">
+                &copy; 2025 Project Contributors. All identifiers masked for review process.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
